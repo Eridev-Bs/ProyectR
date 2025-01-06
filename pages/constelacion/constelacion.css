@@ -1,0 +1,72 @@
+html, body {
+    height: 100%;
+}
+
+footer {
+    background-color: rebeccapurple;
+    position: fixed;        /* Fija el footer en la parte inferior */
+    bottom: 0;              /* Lo posiciona al fondo de la pantalla */
+    left: 0;                /* Alineado al borde izquierdo */
+    width: 100%;            /* Asegura que el footer ocupe todo el ancho */
+    color: white;           /* Color de texto */
+    padding: 20px;          /* Espaciado dentro del footer */
+    text-align: center;     /* Alinea el texto al centro */
+}
+
+body {
+    background: linear-gradient(to bottom, rebeccapurple, mediumpurple);
+    color: #000;          /* Color del texto */
+    height: 100%;         /* Asegura que el body ocupe toda la altura de la ventana */
+    overflow-x: hidden;   /* Evita el desbordamiento horizontal */
+    margin: 0;            /* Elimina el margen por defecto */
+    padding: 0;           /* Elimina el relleno por defecto */
+    font-family: Arial, sans-serif; /* Establece la fuente */
+    font-size: 16px;      /* Tamaño de la fuente */
+    line-height: 1.5;     /* Altura de línea */
+}
+
+.nav {
+    text-decoration: none;
+    color: white;
+    background-color: rgba(75, 0, 130, 0.7); /* Color de fondo semitransparente */
+    position: relative; /* Asegura que el navbar esté posicionado correctamente */
+    z-index: 10; /* Asigna un valor de z-index alto para que el navbar esté sobre los puntos */
+    backdrop-filter: blur(5px); /* Aplica el desenfoque al fondo */
+    -webkit-backdrop-filter: blur(5px); /* Soporte para navegadores basados en WebKit (Safari) */
+    padding: 10px 20px; /* Agrega algo de relleno para mejorar la apariencia */
+}
+
+.nav-link {
+    z-index: 10; /* Asegura que los enlaces dentro del navbar también estén sobre los puntos */
+    text-decoration: none; /* Sin subrayado */
+    color: white; /* Texto blanco */
+    font-weight: normal; /* Quitar negrita */
+    font-size: 1rem; /* Tamaño de fuente estándar */
+}
+.card-header{
+    text-shadow:0 0 5px rgba(255, 255, 255, 0.9), 0 0 20px rgba(255, 255, 255, 0.7);
+    color: white;
+    background-color: rebeccapurple; /* Semitransparente, similar a rebeccapurple */
+}
+.card-body{
+    color: white;
+    background-color: rgba(147, 112, 219, 0.7); /* 70% de opacidad */
+    backdrop-filter: blur(5px); /* Desenfoque de fondo */
+    -webkit-backdrop-filter: blur(5px); /* Soporte para navegadores WebKit */
+}
+.card-footer{
+    text-shadow:0 0 5px rgba(255, 255, 255, 0.9), 0 0 20px rgba(255, 255, 255, 0.7);
+    color: white;
+    background-color: rebeccapurple;
+}
+
+.btn{
+    color: white;
+    background-color: rebeccapurple;
+}
+#result{
+    display: none;
+}
+#load{
+    display: none;
+}
