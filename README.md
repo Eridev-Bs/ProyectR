@@ -37,12 +37,6 @@ Queremos hacer crecer este proyecto aún más y llevarlo a nuevas alturas:
 
 ---
 
-## 📸 **Vista previa del proyecto**  
-![ASTRA Preview](https://via.placeholder.com/800x400?text=ASTRA+Project+Preview)  
-*(Reemplaza este placeholder con una imagen real de tu proyecto.)*
-
----
-
 ## 💌 **Contribuye a ASTRA**  
 ¿Tienes ideas para mejorar ASTRA?  
 ¡Eres bienvenido a abrir un issue o enviar un pull request! Juntos podemos hacer brillar este universo.
