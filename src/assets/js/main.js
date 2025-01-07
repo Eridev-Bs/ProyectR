@@ -84,10 +84,10 @@ $(document).ready(function () {
       method: "GET",
       dataType: "json",
       success: function (data) {
-        //data.slice(0,4).forEach((item) => {
-        //  const cardHTML = createCard(item.email, item.name, item.body);
-        //  $("#result").append(cardHTML);
-        //});
+        data.slice(0,4).forEach((item) => {
+          const cardHTML = createCard(item.email, item.name, item.body);
+          $("#result").append(cardHTML);
+        });
       },
       error: function () {
         console.error("Error al obtener datos");
