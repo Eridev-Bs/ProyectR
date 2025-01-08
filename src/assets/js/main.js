@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  const Listar = [];
+  const Listar = JSON.parse(sessionStorage.getItem("Listar")) || [];
   // Reutilizable para estilos hover
   $(".nav-link").hover(
     function () {
@@ -22,7 +22,7 @@ $(document).ready(function () {
   $(".btnss").hover(
     function () {
       $(this).css({
-        background:"rebeccapurple",
+        background: "rebeccapurple",
         color: "#fff",
         "text-shadow":
           "0 0 10px rgba(255, 255, 255, 0.9), 0 0 20px rgba(255, 255, 255, 0.7)",
@@ -60,16 +60,15 @@ $(document).ready(function () {
     var animationDuration = Math.random() * 3 + 2;
 
     star.css({
-      left: startPositionX + 'px',
-      animationDuration: animationDuration + 's'
+      left: startPositionX + "px",
+      animationDuration: animationDuration + "s",
     });
 
-    $('.falling-dots').append(star);
+    $(".falling-dots").append(star);
 
-    star.on('animationend', function() {
+    star.on("animationend", function () {
       var starBottomPosition = star.offset().top + star.height();
-      var footerTopPosition = $('footer').offset().top;
-
+      var footerTopPosition = $("footer").offset().top;
 
       if (starBottomPosition >= footerTopPosition - 1000) {
         star.remove(); // Elimina el asterisco
@@ -77,9 +76,7 @@ $(document).ready(function () {
     });
   }
 
-
   setInterval(createStar, 3500);
-
 
   //zona efectos, hovers, etc🔼
   //zona funcional🔽
@@ -104,14 +101,18 @@ $(document).ready(function () {
     const nombre = $("input#Name").val();
     const mail = $("input#Email").val();
     const comen = $("#Coment").val();
-    sessionStorage.setItem('name', nombre);
-    sessionStorage.setItem('mail', mail);
-    sessionStorage.setItem('comen', comen);
+    const star = createCard(mail, nombre, comen);
+
+    // Agregar la carta al array Listar
+    Listar.push(star);
+
+    // Guardar el array completo en sessionStorage
+    sessionStorage.setItem("Listar", JSON.stringify(Listar));
+
     $(".card").hide(700);
     $("#card-2").show(1000);
   });
   // Botón `fnlBtn`
-
 
   $("#fnlBtn").click(function () {
     $(".progress-bar").css("width", "100%");
@@ -120,6 +121,16 @@ $(document).ready(function () {
     $("#card-3").show(1000);
   });
 
+  $("#lstBtn").click(function () {});
+
+  $("#agnBtn").click(function () {});
+
+  function manageStars() {
+    Listar.forEach((item) => {
+      $("#result").append(item);
+    });
+  }
+
   // Acción al cargar cartas desde la API
   $("#allBtn").click(function () {
     $(".card").hide(700);
@@ -127,6 +138,10 @@ $(document).ready(function () {
     setTimeout(function () {
       $("#load").fadeOut(500);
       $("#result").fadeIn(500);
+      $("#tituls").fadeIn(500);
+      $("#tu").fadeIn(500);
+      $("#ot").fadeIn(500);
+      $("#rtituls").fadeIn(500);
       $("#resultAll").fadeIn(500);
     }, 2000);
     $.ajax({
@@ -134,7 +149,7 @@ $(document).ready(function () {
       method: "GET",
       dataType: "json",
       success: function (data) {
-        data.slice(0,4).forEach((item) => {
+        data.slice(0, 4).forEach((item) => {
           const cardHTML = createCard(item.email, item.name, item.body);
           $("#resultAll").append(cardHTML);
         });
@@ -144,20 +159,20 @@ $(document).ready(function () {
         $("#resultAll").text("Ocurrió un error al obtener los datos.");
       },
     });
+    manageStars();
   });
 
   $("#myBtn").click(function () {
-    const tmail = sessionStorage.getItem('mail');
-    const tnombre = sessionStorage.getItem('name');
-    const tcomen = sessionStorage.getItem('comen');
-    const star = createCard(tmail,tnombre,tcomen);
     $(".card").hide(700);
     $("#load").fadeIn(500);
     setTimeout(function () {
       $("#load").fadeOut(500);
-      $("#result").append(star);
+      $("#tituls").fadeIn(500);
+      $("#tu").fadeIn(500);
+      $("#rtituls").fadeIn(500);
       $("#result").fadeIn(500);
     }, 2000);
+    manageStars();
   });
 
   $("#conBtn").click(function () {
@@ -165,6 +180,9 @@ $(document).ready(function () {
     $("#load").fadeIn(500);
     setTimeout(function () {
       $("#load").fadeOut(500);
+      $("#tituls").fadeIn(500);
+      $("#ot").fadeIn(500);
+      $("#rtituls").fadeIn(500);
       $("#resultAll").fadeIn(500);
     }, 2000);
     $.ajax({
@@ -172,7 +190,7 @@ $(document).ready(function () {
       method: "GET",
       dataType: "json",
       success: function (data) {
-        data.slice(0,4).forEach((item) => {
+        data.slice(0, 4).forEach((item) => {
           const cardHTML = createCard(item.email, item.name, item.body);
           $("#resultAll").append(cardHTML);
         });
@@ -183,5 +201,4 @@ $(document).ready(function () {
       },
     });
   });
-
 });

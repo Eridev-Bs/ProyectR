@@ -3,6 +3,7 @@ html, body {
 }
 
 footer {
+    text-shadow:0 0 5px rgba(255, 255, 255, 0.9), 0 0 20px rgba(255, 255, 255, 0.7);
     background-color: rebeccapurple;
     position: fixed;        /* Fija el footer en la parte inferior */
     bottom: 0;              /* Lo posiciona al fondo de la pantalla */
@@ -71,6 +72,11 @@ main{
 }
 .form-label{
     color: white;
+    text-shadow:0 0 5px rgba(255, 255, 255, 0.9), 0 0 20px rgba(255, 255, 255, 0.7);
+}
+.card-body{
+    color: white;
+    text-shadow:0 0 5px rgba(255, 255, 255, 0.9), 0 0 20px rgba(255, 255, 255, 0.7);
 }
 .card {
     background-color: rgba(147, 112, 219, 0.7); /* Color semitransparente similar a mediumpurple */
