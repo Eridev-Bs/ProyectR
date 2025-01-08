@@ -16,16 +16,24 @@ footer {
 body {
     background: linear-gradient(to bottom, rebeccapurple, mediumpurple);
     color: #000;          /* Color del texto */
-    height: 100%;         /* Asegura que el body ocupe toda la altura de la ventana */
+    height: 100vh;         /* Asegura que el body ocupe toda la altura de la ventana */
     overflow-x: hidden;   /* Evita el desbordamiento horizontal */
     margin: 0;            /* Elimina el margen por defecto */
-    padding: 0;           /* Elimina el relleno por defecto */
+    padding: 0 auto;           /* Elimina el relleno por defecto */
     font-family: Arial, sans-serif; /* Establece la fuente */
     font-size: 16px;      /* Tamaño de la fuente */
     line-height: 1.5;     /* Altura de línea */
 }
 
+main{
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+}
+
 .nav {
+    justify-content:space-around;
     text-decoration: none;
     color: white;
     background-color: rgba(75, 0, 130, 0.7); /* Color de fondo semitransparente */
@@ -33,7 +41,7 @@ body {
     z-index: 10; /* Asigna un valor de z-index alto para que el navbar esté sobre los puntos */
     backdrop-filter: blur(5px); /* Aplica el desenfoque al fondo */
     -webkit-backdrop-filter: blur(5px); /* Soporte para navegadores basados en WebKit (Safari) */
-    padding: 10px 20px; /* Agrega algo de relleno para mejorar la apariencia */
+    padding: 10px; /* Agrega algo de relleno para mejorar la apariencia */
 }
 
 .nav-link {
@@ -64,18 +72,57 @@ body {
 .form-label{
     color: white;
 }
-.card-body{
-    color: white;
-    background-color: rgba(147, 112, 219, 0.7); /* 70% de opacidad */
-    backdrop-filter: blur(5px); /* Desenfoque de fondo */
-    -webkit-backdrop-filter: blur(5px); /* Soporte para navegadores WebKit */
+.card {
+    background-color: rgba(147, 112, 219, 0.7); /* Color semitransparente similar a mediumpurple */
+    backdrop-filter: blur(5px); /* Aplica el desenfoque al fondo */
+    -webkit-backdrop-filter: blur(5px); /* Soporte para navegadores basados en WebKit (Safari) */
+    width: 100%; /* Ocupa el 90% del ancho disponible */
+    max-width: 550px; /* Máximo 550px */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombras para efecto de elevación */
+    display: flex; /* Flexbox */
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+/* Media queries para responsividad */
+@media (min-width: 768px) {
+    .card {
+        width: 60%; /* Ajusta el ancho para pantallas más grandes */
+    }
+}
+
+@media (min-width: 1200px) {
+    .card {
+        width: 40%; /* Aún más ajustado en pantallas grandes */
+    }
 }
 .progress{
     background-color: rebeccapurple;
 }
-.progress-bar{
-    background-color: mediumpurple;
+.progress-bar {
+    background: linear-gradient(
+        90deg,
+        mediumpurple 35%,
+        rgb(255, 255, 255) 50%,
+        mediumpurple 65%
+    );
+    background-size: 300% 100%; /* Aumenta el tamaño para animar suavemente */
+    animation: slideGlow 5.5s infinite linear; /* Animación suave e infinita */
+    height: 25px;
+    text-align: center;
+    line-height: 25px;
 }
+
+@keyframes slideGlow {
+    0% {
+        background-position: 0% 0%; /* Inicia el brillo desde la izquierda */
+    }
+    100% {
+        background-position: 100% 0%; /* Termina el brillo en la derecha */
+    }
+}
+
+
+
 .Estrella{
     text-shadow:0 0 5px rgba(255, 255, 255, 0.9), 0 0 20px rgba(255, 255, 255, 0.7);
 }
@@ -84,4 +131,40 @@ body {
 }
 #card-3{
     display: none;
+}
+.falling-dots {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none; /* Evita que los asteriscos bloqueen la interacción con otros elementos */
+    z-index: -1; /* Asegura que los asteriscos caigan detrás del navbar */
+}
+  
+  .star {
+    text-shadow:0 0 10px rgba(255, 255, 255, 0.9), 0 0 20px rgba(255, 255, 255, 0.7);
+    position: absolute;
+    font-size: 2rem; /* Ajusta el tamaño del asterisco */
+    color: white;
+    animation: fall 5s linear infinite; /* La animación que hará que los asteriscos caigan */
+}
+
+/* Animación de caída de los puntos */
+@keyframes fall {
+    0% {
+      top: -10px; /* Comienza fuera de la pantalla por encima */
+    }
+    100% {
+      top: 90vh; /* Termina fuera de la pantalla por debajo */
+    }
+}
+.logo{
+    z-index: 12;
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+    width: 40px;
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.8)) 
+            drop-shadow(0 0 15px rgba(147, 112, 219, 0.8)); /* Resplandor ajustado */
+    transition: filter 0.1s infinite; /* Suaviza cambios futuros si los necesitas */
 }

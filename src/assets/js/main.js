@@ -1,36 +1,88 @@
 $(document).ready(function () {
+  const Listar = [];
   // Reutilizable para estilos hover
-  function applyHoverEffect(selector, hoverStyles, defaultStyles) {
-    $(selector).hover(
-      function () {
-        $(this).css(hoverStyles);
-      },
-      function () {
-        $(this).css(defaultStyles);
+  $(".nav-link").hover(
+    function () {
+      $(this).css({
+        color: "#fff",
+        "text-shadow":
+          "0 0 5px rgba(255, 255, 255, 0.7), 0 0 10px rgba(255, 255, 255, 0.5)",
+        transition: "all 0.5s ease",
+      });
+    },
+    function () {
+      $(this).css({
+        color: "",
+        "text-shadow": "",
+        "box-shadow": "",
+      });
+    }
+  );
+
+  $(".btnss").hover(
+    function () {
+      $(this).css({
+        background:"rebeccapurple",
+        color: "#fff",
+        "text-shadow":
+          "0 0 10px rgba(255, 255, 255, 0.9), 0 0 20px rgba(255, 255, 255, 0.7)",
+        transition: "all 0.5s ease",
+      });
+    },
+    function () {
+      $(this).css({
+        color: "",
+        "text-shadow": "",
+      });
+    }
+  );
+
+  $(".btn").hover(
+    function () {
+      $(this).css({
+        color: "#fff",
+        "text-shadow":
+          "0 0 10px rgba(255, 255, 255, 0.9), 0 0 20px rgba(255, 255, 255, 0.7)",
+        transition: "all 0.5s ease",
+      });
+    },
+    function () {
+      $(this).css({
+        color: "",
+        "text-shadow": "",
+      });
+    }
+  );
+
+  function createStar() {
+    var star = $('<span class="star">*</span>');
+    var startPositionX = Math.random() * $(window).width();
+    var animationDuration = Math.random() * 3 + 2;
+
+    star.css({
+      left: startPositionX + 'px',
+      animationDuration: animationDuration + 's'
+    });
+
+    $('.falling-dots').append(star);
+
+    star.on('animationend', function() {
+      var starBottomPosition = star.offset().top + star.height();
+      var footerTopPosition = $('footer').offset().top;
+
+
+      if (starBottomPosition >= footerTopPosition - 1000) {
+        star.remove(); // Elimina el asterisco
       }
-    );
+    });
   }
 
-  // Aplicar efectos hover
-  applyHoverEffect(".nav-link", {
-    color: "#fff",
-    "text-shadow":
-      "0 0 5px rgba(255, 255, 255, 0.7), 0 0 10px rgba(255, 255, 255, 0.5)",
-    transition: "all 0.5s ease",
-  }, {
-    color: "",
-    "text-shadow": "",
-  });
 
-  applyHoverEffect(".btn", {
-    color: "#fff",
-    "text-shadow":
-      "0 0 10px rgba(255, 255, 255, 0.9), 0 0 20px rgba(255, 255, 255, 0.7)",
-    transition: "all 0.5s ease",
-  }, {
-    color: "",
-    "text-shadow": "",
-  });
+  setInterval(createStar, 3500);
+
+
+  //zona efectos, hovers, etc🔼
+  //zona funcional🔽
 
   // Crear cartas dinámicas
   function createCard(email, name, body) {
@@ -59,6 +111,8 @@ $(document).ready(function () {
     $("#card-2").show(1000);
   });
   // Botón `fnlBtn`
+
+
   $("#fnlBtn").click(function () {
     $(".progress-bar").css("width", "100%");
     $(".progress").attr("aria-valuenow", 100);
@@ -67,17 +121,13 @@ $(document).ready(function () {
   });
 
   // Acción al cargar cartas desde la API
-  $("#card").click(function () {
+  $("#allBtn").click(function () {
     $(".card").hide(700);
     $("#load").fadeIn(500);
     setTimeout(function () {
       $("#load").fadeOut(500);
       $("#result").fadeIn(500);
-      const tmail = sessionStorage.getItem('mail');
-      const tnombre = sessionStorage.getItem('name');
-      const tcomen = sessionStorage.getItem('comen');
-      const star = createCard(tmail,tnombre,tcomen);
-      $("#result").append(star);
+      $("#resultAll").fadeIn(500);
     }, 2000);
     $.ajax({
       url: "https://jsonplaceholder.typicode.com/comments",
@@ -86,13 +136,52 @@ $(document).ready(function () {
       success: function (data) {
         data.slice(0,4).forEach((item) => {
           const cardHTML = createCard(item.email, item.name, item.body);
-          $("#result").append(cardHTML);
+          $("#resultAll").append(cardHTML);
         });
       },
       error: function () {
         console.error("Error al obtener datos");
-        $("#result").text("Ocurrió un error al obtener los datos.");
+        $("#resultAll").text("Ocurrió un error al obtener los datos.");
       },
     });
   });
+
+  $("#myBtn").click(function () {
+    const tmail = sessionStorage.getItem('mail');
+    const tnombre = sessionStorage.getItem('name');
+    const tcomen = sessionStorage.getItem('comen');
+    const star = createCard(tmail,tnombre,tcomen);
+    $(".card").hide(700);
+    $("#load").fadeIn(500);
+    setTimeout(function () {
+      $("#load").fadeOut(500);
+      $("#result").append(star);
+      $("#result").fadeIn(500);
+    }, 2000);
+  });
+
+  $("#conBtn").click(function () {
+    $(".card").hide(700);
+    $("#load").fadeIn(500);
+    setTimeout(function () {
+      $("#load").fadeOut(500);
+      $("#resultAll").fadeIn(500);
+    }, 2000);
+    $.ajax({
+      url: "https://jsonplaceholder.typicode.com/comments",
+      method: "GET",
+      dataType: "json",
+      success: function (data) {
+        data.slice(0,4).forEach((item) => {
+          const cardHTML = createCard(item.email, item.name, item.body);
+          $("#resultAll").append(cardHTML);
+        });
+      },
+      error: function () {
+        console.error("Error al obtener datos");
+        $("#resultAll").text("Ocurrió un error al obtener los datos.");
+      },
+    });
+  });
+
 });

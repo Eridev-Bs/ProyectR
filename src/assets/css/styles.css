@@ -1,5 +1,6 @@
 html, body {
     height: 100%;
+    width: 100%;
 }
 
 footer {
@@ -24,8 +25,15 @@ body {
     font-size: 16px;      /* Tamaño de la fuente */
     line-height: 1.5;     /* Altura de línea */
 }
+main{
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+} 
 
 .nav {
+    justify-content:space-around;
     text-decoration: none;
     color: white;
     background-color: rgba(75, 0, 130, 0.7); /* Color de fondo semitransparente */
@@ -33,7 +41,7 @@ body {
     z-index: 10; /* Asigna un valor de z-index alto para que el navbar esté sobre los puntos */
     backdrop-filter: blur(5px); /* Aplica el desenfoque al fondo */
     -webkit-backdrop-filter: blur(5px); /* Soporte para navegadores basados en WebKit (Safari) */
-    padding: 10px 20px; /* Agrega algo de relleno para mejorar la apariencia */
+    padding: 10px; /* Agrega algo de relleno para mejorar la apariencia */
 }
 
 .nav-link {
@@ -44,10 +52,28 @@ body {
     font-size: 1rem; /* Tamaño de fuente estándar */
 }
 
-.card{
+.card {
     background-color: rgba(147, 112, 219, 0.7); /* Color semitransparente similar a mediumpurple */
     backdrop-filter: blur(5px); /* Aplica el desenfoque al fondo */
     -webkit-backdrop-filter: blur(5px); /* Soporte para navegadores basados en WebKit (Safari) */
+    width: 90%; /* Ocupa el 90% del ancho disponible */
+    max-width: 550px; /* Máximo 550px */
+    margin: 0 auto; /* Centra horizontalmente */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombras para efecto de elevación */
+    display: flex; /* Flexbox */
+    flex-direction: column; /* Apila elementos */
+}
+
+@media (min-width: 768px) {
+    .card {
+        width: 60%; /* Ajusta el ancho para pantallas más grandes */
+    }
+}
+
+@media (min-width: 1200px) {
+    .card {
+        width: 40%; /* Aún más ajustado en pantallas grandes */
+    }
 }
 
 .card-header {
@@ -71,7 +97,7 @@ body {
     z-index: -1; /* Asegura que los asteriscos caigan detrás del navbar */
 }
   
-  .star {
+.star {
     text-shadow:0 0 10px rgba(255, 255, 255, 0.9), 0 0 20px rgba(255, 255, 255, 0.7);
     position: absolute;
     font-size: 2rem; /* Ajusta el tamaño del asterisco */
@@ -87,4 +113,14 @@ body {
     100% {
       top: 90vh; /* Termina fuera de la pantalla por debajo */
     }
+}
+
+.logo{
+    z-index: 12;
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+    width: 40px;
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.8)) 
+            drop-shadow(0 0 15px rgba(147, 112, 219, 0.8)); /* Resplandor ajustado */
+    transition: filter 0.1s infinite; /* Suaviza cambios futuros si los necesitas */
 }

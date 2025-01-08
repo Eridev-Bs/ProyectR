@@ -14,10 +14,12 @@
     <title>Astra</title>
 </head>
 <body>
+  <div><div class="falling-dots"></div></div>
   <!--Header-->
   <script src="../../src/assets/js/main.js"></script>
     <header>
-        <ul class="nav justify-content-center">
+        <ul class="nav">
+          <img class="logo" src="../../src/assets/img/logo.svg">
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="../../index.html">Astra</a>
           </li>
@@ -37,21 +39,21 @@
         </div>
         <div class="card-body">
           <div class="form-floating mb-2">
-            <h6>nombre:</h6>
-            <input type="text" value="" id="Name" placeholder="Nombre...">
+            <label for="Name" class="form-label">Nombre...</label>
+            <input type="text" class="form-control" value="" id="Name">
           </div>
           <div class="form-floating mb-2">
-            <h6>correo:</h6>
-            <input type="email" value="" id="Email" placeholder="name@example...">
+            <label for="Email" class="form-label">Email...</label>
+            <input type="email" class="form-control" value="" id="Email">
           </div>
-          <div class="mb-2">
-            <label for="exampleFormControlTextarea1" class="form-label">Comment:</label>
-            <textarea type="text" id="Coment" value="" placeholder="Comentario..." rows="3"></textarea>
+          <div class="mb-2 form-floating">
+            <textarea type="text" id="Coment" value="" class="form-control" placeholder="Leave a comment here" rows="3"></textarea>
+            <label for="Coment">Comentario...</label>
           </div>
-          <a href="#" id="prmBtn" class="btn">Continuar...</a>
+          <a href="#" id="prmBtn" class="btn btnss">Continuar...</a>
         </div>
         <div class="card-footer">
-          Completar informacion para paso siguiente.
+          Completar informacion para el paso siguiente.
         </div>
       </div>
       <div class="card text-center m-2" id="card-2">
@@ -61,7 +63,7 @@
         <div class="card-body">
           <h5 class="card-title">Genial creaste una<h5 class="Estrella">!ESTRELLA¡<br>⭐</h5></h5>
           <p class="card-text">Prueba a enviarla a la constelacion.</p>
-          <a href="#" id="fnlBtn" class="btn">🚀 ENVIAR 🚀</a>
+          <a href="#" id="fnlBtn" class="btn btnss">🚀 ENVIAR 🚀</a>
         </div>
         <div class="card-footer">
           de seguro que es radiante!
@@ -73,14 +75,15 @@
         </div>
         <div class="card-body">
           <h5 class="card-title Estrella ">¡Genial, ha volado como toda una estrella fugaz!</h5>
-          <a href="../constelacion/constelacion.html" id="lstBtn" class="btn">Constelacion</a>
+          <a href="../constelacion/constelacion.html" id="lstBtn" class="btn btnss">Constelacion</a>
+          <a href="../estrellas/estrellas.html" id="agnBtn" class="btn btnss">Crear otra estrella</a>
         </div>
         <div class="card-footer">
           de seguro que ya llego a su galaxia
         </div>
       </div>
-      <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
-        <div class="progress-bar" style="width: 0%"></div>
+      <div class="progress m-2" role="progressbar" aria-label="Basic example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+        <div class="progress-bar " style="width: 0%"></div>
       </div>
     </main>
     <footer>

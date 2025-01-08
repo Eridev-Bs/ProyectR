@@ -16,7 +16,8 @@
   <body>
     <script src="../../src/assets/js/main.js"></script>
     <header>
-      <ul class="nav justify-content-center">
+      <ul class="nav">
+        <img class="logo" src="../../src/assets/img/logo.svg" />
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="../../index.html"
             >Astra</a
@@ -31,13 +32,18 @@
       </ul>
     </header>
     <main>
+      <div><div class="falling-dots"></div></div>
       <div class="card text-center m-2" id="card">
         <div class="card-header">Bienvenido a las ¡CONSTELACIONES!</div>
         <div class="card-body">
           <h5 class="card-title Estrella">
             si deseas verlas tienes que presionar el boton
           </h5>
-          <a href="#" id="conBtn" class="btn">Ver Constelaciones</a>
+          <a href="#" id="allBtn" class="btn btnss m-2"
+            >Todas Las Constelaciones</a
+          >
+          <a href="#" id="myBtn" class="btn btnss m-2">Mis Constelaciones</a>
+          <a href="#" id="conBtn" class="btn btnss m-2">Otras Constelaciones</a>
         </div>
         <div class="card-footer">Puede que te pierdas entre las estrellas.</div>
       </div>
@@ -49,14 +55,17 @@
       </div>
       <div class="grid-container">
         <div id="result"></div>
+        <div id="resultAll"></div>
       </div>
     </main>
     <footer>
-        <div class="container d-flex justify-content-center align-items-center">
-          <div class="d-flex align-items-center">
-            <span class="ms-2">&copy; 2025 Astra, Corp. By Benjamin Sequeida.</span>
-          </div>
+      <div class="container d-flex justify-content-center align-items-center">
+        <div class="d-flex align-items-center">
+          <span class="ms-2"
+            >&copy; 2025 Astra, Corp. By Benjamin Sequeida.</span
+          >
         </div>
-      </footer>
+      </div>
+    </footer>
   </body>
 </html>
