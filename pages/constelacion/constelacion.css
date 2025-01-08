@@ -1,33 +1,33 @@
-html,
-body {
+/*indicare en cascada para mejor simplesa👌*/
+
+
+/* Base html 🔽*/
+html,body {
   height: 100%;
 }
-
 footer {
   text-shadow: 0 0 5px rgba(255, 255, 255, 0.9),
     0 0 20px rgba(255, 255, 255, 0.7);
   background-color: rebeccapurple;
-  position: fixed; /* Fija el footer en la parte inferior */
-  bottom: 0; /* Lo posiciona al fondo de la pantalla */
-  left: 0; /* Alineado al borde izquierdo */
-  width: 100%; /* Asegura que el footer ocupe todo el ancho */
-  color: white; /* Color de texto */
-  padding: 20px; /* Espaciado dentro del footer */
-  text-align: center; /* Alinea el texto al centro */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  color: white;
+  padding: 20px;
+  text-align: center;
 }
-
 body {
   background: linear-gradient(to bottom, rebeccapurple, mediumpurple);
-  color: #000; /* Color del texto */
-  height: 100%; /* Asegura que el body ocupe toda la altura de la ventana */
-  overflow: hidden; /* Evita el desbordamiento horizontal */
-  margin: 0; /* Elimina el margen por defecto */
-  padding: 0; /* Elimina el relleno por defecto */
-  font-family: Arial, sans-serif; /* Establece la fuente */
-  font-size: 16px; /* Tamaño de la fuente */
-  line-height: 1.5; /* Altura de línea */
+  color: #000;
+  height: 100%;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
 }
-
 main {
   display: flex;
   justify-content: center;
@@ -35,65 +35,59 @@ main {
   align-items: center;
 }
 
+
+
+/* NavBar 🔽*/
 .nav {
   justify-content: space-around;
   text-decoration: none;
   color: white;
-  background-color: rgba(75, 0, 130, 0.7); /* Color de fondo semitransparente */
-  position: relative; /* Asegura que el navbar esté posicionado correctamente */
-  z-index: 10; /* Asigna un valor de z-index alto para que el navbar esté sobre los puntos */
-  backdrop-filter: blur(5px); /* Aplica el desenfoque al fondo */
-  -webkit-backdrop-filter: blur(
-    5px
-  ); /* Soporte para navegadores basados en WebKit (Safari) */
-  padding: 10px; /* Agrega algo de relleno para mejorar la apariencia */
+  background-color: rgba(75, 0, 130, 0.7);
+  position: relative;
+  z-index: 10;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  padding: 10px;
+}
+.nav-link {
+  z-index: 10;
+  text-decoration: none;
+  color: white;
+  font-weight: normal;
+  font-size: 1rem;
+}
+.logo {
+  z-index: 12;
+  padding: 0 0 0 0;
+  margin: 0 0 0 0;
+  width: 40px;
+  filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.8))
+    drop-shadow(0 0 15px rgba(147, 112, 219, 0.8));
+  transition: filter 0.1s infinite;
 }
 
-.nav-link {
-  z-index: 10; /* Asegura que los enlaces dentro del navbar también estén sobre los puntos */
-  text-decoration: none; /* Sin subrayado */
-  color: white; /* Texto blanco */
-  font-weight: normal; /* Quitar negrita */
-  font-size: 1rem; /* Tamaño de fuente estándar */
-}
+
+
+/* Carta o tarjeta 🔽*/
 .card-header {
   text-shadow: 0 0 5px rgba(255, 255, 255, 0.9),
     0 0 20px rgba(255, 255, 255, 0.7);
   color: white;
-  background-color: rebeccapurple; /* Semitransparente, similar a rebeccapurple */
+  background-color: rebeccapurple;
 }
 .card-body {
   color: white;
 }
 .card {
-  background-color: rgba(
-    147,
-    112,
-    219,
-    0.7
-  ); /* Color semitransparente similar a mediumpurple */
-  backdrop-filter: blur(5px); /* Aplica el desenfoque al fondo */
-  -webkit-backdrop-filter: blur(
-    5px
-  ); /* Soporte para navegadores basados en WebKit (Safari) */
-  width: 90%; /* Ocupa el 90% del ancho disponible */
-  max-width: 550px; /* Máximo 550px */
-  margin: 0 auto; /* Centra horizontalmente */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombras para efecto de elevación */
-  display: flex; /* Flexbox */
-  flex-direction: column; /* Apila elementos */
-}
-
-@media (min-width: 768px) {
-  .card {
-    width: 60%; /* Ajusta el ancho para pantallas más grandes */
-  }
-}
-
-@media (min-width: 1200px) {
-  .card {
-    width: 40%; /* Aún más ajustado en pantallas grandes */
-  }
+  background-color: rgba(147, 112, 219, 0.7);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  width: 90%;
+  max-width: 550px;
+  margin: 0 auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
 }
 .card-footer {
   text-shadow: 0 0 5px rgba(255, 255, 255, 0.9),
@@ -101,24 +95,25 @@ main {
   color: white;
   background-color: rebeccapurple;
 }
-
 .btn {
   color: white;
   background-color: rebeccapurple;
 }
+
+
+
+/* Containers 🔽 */
 .grid-containers {
   text-align: center;
   display: none;
   display: grid;
-  grid-template-columns: 1fr 1fr; /* Define dos columnas con el mismo tamaño */
-  gap: 5px; /* Espacio entre los elementos */
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
 }
-@media (max-width: 768px) {
-  /* Pantallas con un ancho máximo de 768px */
-  .grid-containers {
-    grid-template-columns: 1fr; /* Una columna */
-  }
-}
+
+
+
+/* Ids y Atributos scroll 🔽 */
 #tu,
 #ot {
   margin: 2px;
@@ -130,70 +125,76 @@ main {
 #result,
 #resultAll {
   overflow-x: hidden;
-  overflow-y: auto; /* Permite el scroll solo en el eje Y (vertical) */
-  max-height: 70vh; /* Ajusta este valor según lo necesites */
+  overflow-y: auto;
+  max-height: 70vh;
 }
 #load {
   justify-content: center;
   display: none;
 }
-/* Cambiar el color del track (la parte por donde se mueve el thumb) */
 ::-webkit-scrollbar {
-  width: 10px; /* Establece el ancho de la barra de desplazamiento */
-  height: 10px; /* Si también quieres cambiar el scroll horizontal */
+  width: 10px;
+  height: 10px;
 }
-
-/* Cambiar el color del thumb (la parte que se mueve) */
 ::-webkit-scrollbar-thumb {
-  background-color: rebeccapurple; /* Color del thumb */
-  border-radius: 10px; /* Bordes redondeados */
+  background-color: rebeccapurple;
+  border-radius: 10px;
 }
-
-/* Cambiar el color del thumb cuando el usuario pasa el mouse sobre él */
 ::-webkit-scrollbar-thumb:hover {
-  background-color: rebeccapurple; /* Color del thumb en hover */
+  background-color: rebeccapurple;
 }
-
-/* Cambiar el color del track (fondo del scroll) */
 ::-webkit-scrollbar-track {
-  background: mediumpurple; /* Color de fondo del track */
-  border-radius: 10px; /* Bordes redondeados */
+  background: mediumpurple;
+  border-radius: 10px;
 }
 
+
+
+/* Animaciones de estrellas 🔽 */
 .falling-dots {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  pointer-events: none; /* Evita que los asteriscos bloqueen la interacción con otros elementos */
-  z-index: -1; /* Asegura que los asteriscos caigan detrás del navbar */
+  pointer-events: none;
+  z-index: -1;
 }
-
 .star {
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.9),
     0 0 20px rgba(255, 255, 255, 0.7);
   position: absolute;
-  font-size: 2rem; /* Ajusta el tamaño del asterisco */
+  font-size: 2rem;
   color: white;
-  animation: fall 5s linear infinite; /* La animación que hará que los asteriscos caigan */
+  animation: fall 5s linear infinite;
 }
-
-/* Animación de caída de los puntos */
 @keyframes fall {
   0% {
-    top: -10px; /* Comienza fuera de la pantalla por encima */
+    top: -10px;
   }
   100% {
-    top: 90vh; /* Termina fuera de la pantalla por debajo */
+    top: 90vh;
   }
 }
-.logo {
-  z-index: 12;
-  padding: 0 0 0 0;
-  margin: 0 0 0 0;
-  width: 40px;
-  filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.8))
-    drop-shadow(0 0 15px rgba(147, 112, 219, 0.8)); /* Resplandor ajustado */
-  transition: filter 0.1s infinite; /* Suaviza cambios futuros si los necesitas */
+
+
+
+/* Mediaquerys 🔽 */
+@media (min-width: 700px) {
+  .card {
+    width: 60%;
+  }
+}
+@media (min-width: 1200px) {
+  .card {
+    width: 40%;
+  }
+}
+@media (max-width: 500px) {
+  body{
+    overflow:scroll;
+  }
+  .grid-containers {
+    grid-template-columns: 1fr;
+  }
 }

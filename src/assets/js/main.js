@@ -1,6 +1,57 @@
 $(document).ready(function () {
+
+  // Variables de uso publico 🔽.
   const Listar = JSON.parse(sessionStorage.getItem("Listar")) || [];
-  // Reutilizable para estilos hover
+  
+
+  // Funciones de uso publico 🔽.
+  function createStar() {
+    var star = $('<span class="star">*</span>');
+    var startPositionX = Math.random() * $(window).width();
+    var animationDuration = Math.random() * 3 + 2;
+
+    star.css({
+      left: startPositionX + "px",
+      animationDuration: animationDuration + "s",
+    });
+
+    $(".falling-dots").append(star);
+
+    star.on("animationend", function () {
+      var starBottomPosition = star.offset().top + star.height();
+      var footerTopPosition = $("footer").offset().top;
+
+      if (starBottomPosition >= footerTopPosition - 1000) {
+        star.remove();
+      }
+    });
+  }
+  setInterval(createStar, 3500);
+
+
+  function createCard(email, name, body) {
+    return `
+      <div class="col">
+        <div id="api" class="card m-2" style="width: 100%;">
+          <div class="card-header">${email}</div>
+          <div class="card-body">
+            <h5 class="card-title">${name}</h5>
+            <p class="card-text">${body}</p>
+          </div>
+        </div>
+      </div>`;
+  }
+
+
+  function manageStars() {
+    Listar.forEach((item) => {
+      $("#result").append(item);
+    });
+  }
+
+
+
+  // Efectos de Nav y botones 🔽.
   $(".nav-link").hover(
     function () {
       $(this).css({
@@ -54,47 +105,10 @@ $(document).ready(function () {
     }
   );
 
-  function createStar() {
-    var star = $('<span class="star">*</span>');
-    var startPositionX = Math.random() * $(window).width();
-    var animationDuration = Math.random() * 3 + 2;
 
-    star.css({
-      left: startPositionX + "px",
-      animationDuration: animationDuration + "s",
-    });
 
-    $(".falling-dots").append(star);
 
-    star.on("animationend", function () {
-      var starBottomPosition = star.offset().top + star.height();
-      var footerTopPosition = $("footer").offset().top;
-
-      if (starBottomPosition >= footerTopPosition - 1000) {
-        star.remove(); // Elimina el asterisco
-      }
-    });
-  }
-
-  setInterval(createStar, 3500);
-
-  //zona efectos, hovers, etc🔼
-  //zona funcional🔽
-
-  // Crear cartas dinámicas
-  function createCard(email, name, body) {
-    return `
-      <div class="col">
-        <div id="api" class="card m-2" style="width: 100%;">
-          <div class="card-header">${email}</div>
-          <div class="card-body">
-            <h5 class="card-title">${name}</h5>
-            <p class="card-text">${body}</p>
-          </div>
-        </div>
-      </div>`;
-  }
-  // Botón `prmBtn`
+  // Funciones de Botones y Apis 🔽.
   $("#prmBtn").click(function () {
     $(".progress-bar").css("width", "50%");
     $(".progress").attr("aria-valuenow", 50);
@@ -103,16 +117,13 @@ $(document).ready(function () {
     const comen = $("#Coment").val();
     const star = createCard(mail, nombre, comen);
 
-    // Agregar la carta al array Listar
     Listar.push(star);
 
-    // Guardar el array completo en sessionStorage
     sessionStorage.setItem("Listar", JSON.stringify(Listar));
 
     $(".card").hide(700);
     $("#card-2").show(1000);
   });
-  // Botón `fnlBtn`
 
   $("#fnlBtn").click(function () {
     $(".progress-bar").css("width", "100%");
@@ -120,18 +131,6 @@ $(document).ready(function () {
     $("#card-2").hide(700);
     $("#card-3").show(1000);
   });
-
-  $("#lstBtn").click(function () {});
-
-  $("#agnBtn").click(function () {});
-
-  function manageStars() {
-    Listar.forEach((item) => {
-      $("#result").append(item);
-    });
-  }
-
-  // Acción al cargar cartas desde la API
   $("#allBtn").click(function () {
     $(".card").hide(700);
     $("#load").fadeIn(500);

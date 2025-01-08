@@ -1,107 +1,150 @@
+/*indicare en cascada para mejor simplesa👌*/
+
+
+/* Base html 🔽*/
 html, body {
     height: 100%;
 }
-
 footer {
     text-shadow:0 0 5px rgba(255, 255, 255, 0.9), 0 0 20px rgba(255, 255, 255, 0.7);
     background-color: rebeccapurple;
-    position: fixed;        /* Fija el footer en la parte inferior */
-    bottom: 0;              /* Lo posiciona al fondo de la pantalla */
-    left: 0;                /* Alineado al borde izquierdo */
-    width: 100%;            /* Asegura que el footer ocupe todo el ancho */
-    color: white;           /* Color de texto */
-    padding: 20px;          /* Espaciado dentro del footer */
-    text-align: center;     /* Alinea el texto al centro */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    color: white;
+    padding: 20px;
+    text-align: center;
 }
-
 body {
     background: linear-gradient(to bottom, rebeccapurple, mediumpurple);
-    color: #000;          /* Color del texto */
-    height: 100vh;         /* Asegura que el body ocupe toda la altura de la ventana */
-    overflow-x: hidden;   /* Evita el desbordamiento horizontal */
-    margin: 0;            /* Elimina el margen por defecto */
-    padding: 0 auto;           /* Elimina el relleno por defecto */
-    font-family: Arial, sans-serif; /* Establece la fuente */
-    font-size: 16px;      /* Tamaño de la fuente */
-    line-height: 1.5;     /* Altura de línea */
+    color: #000;
+    height: 100vh;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0 auto;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
 }
-
-main{
+main {
     display: flex;
     justify-content: center;
     justify-items: center;
     align-items: center;
 }
 
+
+
+/* Navbar 🔽*/
 .nav {
-    justify-content:space-around;
+    justify-content: space-around;
     text-decoration: none;
     color: white;
-    background-color: rgba(75, 0, 130, 0.7); /* Color de fondo semitransparente */
-    position: relative; /* Asegura que el navbar esté posicionado correctamente */
-    z-index: 10; /* Asigna un valor de z-index alto para que el navbar esté sobre los puntos */
-    backdrop-filter: blur(5px); /* Aplica el desenfoque al fondo */
-    -webkit-backdrop-filter: blur(5px); /* Soporte para navegadores basados en WebKit (Safari) */
-    padding: 10px; /* Agrega algo de relleno para mejorar la apariencia */
+    background-color: rgba(75, 0, 130, 0.7);
+    position: relative;
+    z-index: 10;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    padding: 10px;
 }
-
 .nav-link {
-    z-index: 10; /* Asegura que los enlaces dentro del navbar también estén sobre los puntos */
-    text-decoration: none; /* Sin subrayado */
-    color: white; /* Texto blanco */
-    font-weight: normal; /* Quitar negrita */
-    font-size: 1rem; /* Tamaño de fuente estándar */
-}
-.card-header{
-    text-shadow:0 0 5px rgba(255, 255, 255, 0.9), 0 0 20px rgba(255, 255, 255, 0.7);
+    z-index: 10;
+    text-decoration: none;
     color: white;
-    background-color: rebeccapurple; /* Semitransparente, similar a rebeccapurple */
+    font-weight: normal;
+    font-size: 1rem;
 }
-.card-footer{
-    text-shadow:0 0 5px rgba(255, 255, 255, 0.9), 0 0 20px rgba(255, 255, 255, 0.7);
-    color: white;
-    background-color: rebeccapurple;
+.logo {
+    z-index: 12;
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+    width: 40px;
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.8)) 
+            drop-shadow(0 0 15px rgba(147, 112, 219, 0.8));
+    transition: filter 0.1s infinite;
 }
 
-.btn{
-    color: white;
-    background-color: rebeccapurple;
-}
-.form-control{
-    background-color: rebeccapurple;
-}
-.form-label{
-    color: white;
+
+
+/* Carta o Tarjeta de inicio 🔽*/
+.card-header {
     text-shadow:0 0 5px rgba(255, 255, 255, 0.9), 0 0 20px rgba(255, 255, 255, 0.7);
+    color: white;
+    background-color: rebeccapurple;
 }
-.card-body{
+.card-body {
     color: white;
     text-shadow:0 0 5px rgba(255, 255, 255, 0.9), 0 0 20px rgba(255, 255, 255, 0.7);
 }
 .card {
-    background-color: rgba(147, 112, 219, 0.7); /* Color semitransparente similar a mediumpurple */
-    backdrop-filter: blur(5px); /* Aplica el desenfoque al fondo */
-    -webkit-backdrop-filter: blur(5px); /* Soporte para navegadores basados en WebKit (Safari) */
-    width: 100%; /* Ocupa el 90% del ancho disponible */
-    max-width: 550px; /* Máximo 550px */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombras para efecto de elevación */
-    display: flex; /* Flexbox */
-    border-radius: 10px; /* Bordes redondeados */
+    background-color: rgba(147, 112, 219, 0.7);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    width: 100%;
+    max-width: 550px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    border-radius: 10px;
+}
+.card-footer {
+    text-shadow:0 0 5px rgba(255, 255, 255, 0.9), 0 0 20px rgba(255, 255, 255, 0.7);
+    color: white;
+    background-color: rebeccapurple;
+}
+#card-2 {
+    display: none;
+}
+#card-3 {
+    display: none;
+}
+.btn {
+    color: white;
+    background-color: rebeccapurple;
+}
+.Estrella {
+    text-shadow:0 0 5px rgba(255, 255, 255, 0.9), 0 0 20px rgba(255, 255, 255, 0.7);
 }
 
-/* Media queries para responsividad */
-@media (min-width: 768px) {
-    .card {
-        width: 60%; /* Ajusta el ancho para pantallas más grandes */
-    }
+
+
+/* Formulario 🔽*/
+.form-control {
+    background-color: rebeccapurple;
+}
+.form-label {
+    color: white;
+    text-shadow:0 0 5px rgba(255, 255, 255, 0.9), 0 0 20px rgba(255, 255, 255, 0.7);
 }
 
-@media (min-width: 1200px) {
-    .card {
-        width: 40%; /* Aún más ajustado en pantallas grandes */
+
+
+/* Animaciones 🔽*/
+.falling-dots {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: -1;
+}
+.star {
+    text-shadow:0 0 10px rgba(255, 255, 255, 0.9), 0 0 20px rgba(255, 255, 255, 0.7);
+    position: absolute;
+    font-size: 2rem;
+    color: white;
+    animation: fall 5s linear infinite;
+}
+@keyframes fall {
+    0% {
+      top: -10px;
+    }
+    100% {
+      top: 90vh;
     }
 }
-.progress{
+.progress {
     background-color: rebeccapurple;
 }
 .progress-bar {
@@ -111,66 +154,32 @@ main{
         rgb(255, 255, 255) 50%,
         mediumpurple 65%
     );
-    background-size: 300% 100%; /* Aumenta el tamaño para animar suavemente */
-    animation: slideGlow 5.5s infinite linear; /* Animación suave e infinita */
+    background-size: 300% 100%;
+    animation: slideGlow 5.5s infinite linear;
     height: 25px;
     text-align: center;
     line-height: 25px;
 }
-
 @keyframes slideGlow {
     0% {
-        background-position: 0% 0%; /* Inicia el brillo desde la izquierda */
+        background-position: 0% 0%;
     }
     100% {
-        background-position: 100% 0%; /* Termina el brillo en la derecha */
+        background-position: 100% 0%;
     }
 }
 
 
 
-.Estrella{
-    text-shadow:0 0 5px rgba(255, 255, 255, 0.9), 0 0 20px rgba(255, 255, 255, 0.7);
-}
-#card-2{
-    display: none;
-}
-#card-3{
-    display: none;
-}
-.falling-dots {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    pointer-events: none; /* Evita que los asteriscos bloqueen la interacción con otros elementos */
-    z-index: -1; /* Asegura que los asteriscos caigan detrás del navbar */
-}
-  
-  .star {
-    text-shadow:0 0 10px rgba(255, 255, 255, 0.9), 0 0 20px rgba(255, 255, 255, 0.7);
-    position: absolute;
-    font-size: 2rem; /* Ajusta el tamaño del asterisco */
-    color: white;
-    animation: fall 5s linear infinite; /* La animación que hará que los asteriscos caigan */
+/* @mediaquerys 🔽*/
+@media (min-width: 768px) {
+    .card {
+        width: 60%;
+    }
 }
 
-/* Animación de caída de los puntos */
-@keyframes fall {
-    0% {
-      top: -10px; /* Comienza fuera de la pantalla por encima */
+@media (min-width: 1200px) {
+    .card {
+        width: 40%;
     }
-    100% {
-      top: 90vh; /* Termina fuera de la pantalla por debajo */
-    }
-}
-.logo{
-    z-index: 12;
-    padding: 0 0 0 0;
-    margin: 0 0 0 0;
-    width: 40px;
-    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.8)) 
-            drop-shadow(0 0 15px rgba(147, 112, 219, 0.8)); /* Resplandor ajustado */
-    transition: filter 0.1s infinite; /* Suaviza cambios futuros si los necesitas */
 }
